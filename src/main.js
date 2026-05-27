@@ -12,8 +12,8 @@ document.querySelector('#app').innerHTML = `
     <img src="${viteLogo}" class="vite" alt="Vite logo" />
   </div>
   <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.js</code> and save to test <code>HMR</code></p>
+    <h1>Demostración de Integración Continua</h1>
+    <p>Este cambio fue validado por la pipeline y desplegado automáticamente con GitHub Actions.</p>
   </div>
   <button id="counter" type="button" class="counter"></button>
 </section>
