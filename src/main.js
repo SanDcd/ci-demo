@@ -3,7 +3,7 @@ import { sumar } from './suma.js'
 
 document.querySelector('#app').innerHTML = `
   <div>
-    <h1>Demo de Integración Continua y Entrega Continua</h1>
+    <h1>Demo de Integración y Entrega Continua</h1>
 
     <p>
       Esta aplicación web simple permite sumar dos números y sirve para demostrar un flujo de CI/CD.
@@ -11,14 +11,14 @@ document.querySelector('#app').innerHTML = `
 
     <div class="card">
       <label for="numeroA">Primer número:</label>
-      <input id="numeroA" type="number" value="2" />
+      <input id="numeroA" type="number" value="" />
 
       <label for="numeroB">Segundo número:</label>
-      <input id="numeroB" type="number" value="3" />
+      <input id="numeroB" type="number" value="" />
 
       <button id="btnSumar">Sumar</button>
 
-      <p id="resultado">Resultado: 5</p>
+      <p id="resultado">Resultado: </p>
     </div>
 
     <p>
