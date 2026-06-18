@@ -33,7 +33,7 @@ const botonSumar = document.querySelector('#btnSumar')
 const resultado = document.querySelector('#resultado')
 
 botonSumar.addEventListener('click', () => {
-  const numeroA = Number(inputA.value)
+  const numeroA = 
   const numeroB = Number(inputB.value)
 
   const suma = sumar(numeroA, numeroB)
