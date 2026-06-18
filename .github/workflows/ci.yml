@@ -71,13 +71,18 @@ jobs:
           to: ${{ secrets.MAIL_TO }}
           from: GitHub Actions
           body: |
-            La pipeline finalizo correctamente.
+            ✅ Despliegue exitoso
 
-            Repositorio: ${{ github.repository }}
-            Commit: ${{ github.sha }}
+            Proyecto: ci-demo
 
-            URL:
+            Último cambio:
+            ${{ github.event.head_commit.message }}
+
+            Aplicación publicada:
             https://sandcd.github.io/ci-demo/
+
+            Workflow:
+            ${{ github.workflow }}
 
   notify-failure:
     if: failure()
@@ -97,9 +102,11 @@ jobs:
           to: ${{ secrets.MAIL_TO }}
           from: GitHub Actions
           body: |
-            La pipeline fallo.
+            ❌ Error en la pipeline
 
-            Repositorio: ${{ github.repository }}
-            Commit: ${{ github.sha }}
+            Proyecto: ci-demo
 
-            Revisar GitHub Actions.
+            Último cambio:
+            ${{ github.event.head_commit.message }}
+
+            Revisar GitHub Actions para más detalles.
