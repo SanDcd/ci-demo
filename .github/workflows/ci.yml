@@ -53,3 +53,53 @@ jobs:
       - name: Desplegar en GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+  notify-success:
+    if: success() && github.event_name == 'push'
+    needs: deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enviar email de despliegue exitoso
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "CI/CD OK - Aplicacion desplegada"
+          to: ${{ secrets.MAIL_TO }}
+          from: GitHub Actions
+          body: |
+            La pipeline finalizo correctamente.
+
+            Repositorio: ${{ github.repository }}
+            Commit: ${{ github.sha }}
+
+            URL:
+            https://sandcd.github.io/ci-demo/
+
+  notify-failure:
+    if: failure()
+    needs: [build-and-test, deploy]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enviar email de fallo
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "CI/CD FALLO"
+          to: ${{ secrets.MAIL_TO }}
+          from: GitHub Actions
+          body: |
+            La pipeline fallo.
+
+            Repositorio: ${{ github.repository }}
+            Commit: ${{ github.sha }}
+
+            Revisar GitHub Actions.
