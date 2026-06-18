@@ -75,7 +75,7 @@ jobs:
 
             Proyecto: ci-demo
 
-            Último cambio:
+            Último commit:
             ${{ github.event.head_commit.message }}
 
             Aplicación publicada:
@@ -106,7 +106,7 @@ jobs:
 
             Proyecto: ci-demo
 
-            Último cambio:
+            Último commit:
             ${{ github.event.head_commit.message }}
 
             Revisar GitHub Actions para más detalles.
